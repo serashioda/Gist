@@ -1,0 +1,3 @@
+[run]
+source = gist_app
+omit = gist_app/test*
