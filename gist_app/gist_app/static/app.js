@@ -5,7 +5,10 @@ $(document).ready(function(){
         $.ajax({
             url: 'delete/' + $(this).attr("data"),
             data: {
-                "name": "some name",
+                "user_name": "some name",
+                "f_name": "some name",
+                "l_name": "some name",
+                "email": "email",
                 "favorite_food": "some food"
             }
             success: function(){

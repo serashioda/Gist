@@ -7,8 +7,20 @@
 <form method="POST">
     <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}">
     <p>
-        <label for="item">Name: </label>
-        <input type="text" name="name" />
+        <label for="item">User Name: </label>
+        <input type="text" name="user_name" />
+    </p>
+    <p>
+        <label for="item">First Name: </label>
+        <input type="text" name="f_name" />
+    </p>
+    <p>
+        <label for="item">Last Name: </label>
+        <input type="text" name="l_name" />
+    </p>
+    <p>
+        <label for="item">Email: </label>
+        <input type="text" name="email" />
     </p>
     <p>
         <label for="amount">Favorite Food: </label>

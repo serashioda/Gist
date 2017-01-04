@@ -15,7 +15,10 @@ class Profile(Base):
 
     __tablename__ = 'models'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode)
+    user_name = Column(Unicode)
+    f_name = Column(Unicode)
+    l_name = Column(Unicode)
+    email = Column(Unicode)
     favorite_food = Column(Unicode)
     date = Column(Date)
     description = Column(Unicode)

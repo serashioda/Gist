@@ -21,7 +21,10 @@
 <tr>
     <td>{{ profile.date.strftime("%b %d, %Y") }}</td>
     <td align="right">${{ "%0.2f" | format(profile.name) }}</td>
-    <td>{{ profile.name }}</td>
+    <td>{{ profile.user_name }}</td>
+    <td>{{ profile.f_name }}</td>
+    <td>{{ profile.l_name }}</td>
+    <td>{{ profile.email }}</td>
     <td>{{ profile.favorite_food }}</td>
     <td align="center"><a href="{{ request.route_url('edit', id=profile.id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
     <td align="center"><a href="#" class="delete" data="{{ profile.id }}"><i class="fa fa-times" aria-hidden="true"></i></a></td>

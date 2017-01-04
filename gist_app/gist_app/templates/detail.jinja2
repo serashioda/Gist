@@ -5,13 +5,22 @@
 {% block body %}
 <h1>{{ profile.item }}</h1>
 <p>
-    ${{ profile.name | round(2) }} {{ profile.description }}
+    ${{ profile.user_name | round(2) }} {{ profile.description }}
+</p>
+<p>
+    ${{ profile.f_name | round(2) }} {{ profile.description }}
+</p>
+<p>
+    ${{ profile.l_name | round(2) }} {{ profile.description }}
+</p>
+<p>
+    ${{ profile.email | round(2) }} {{ profile.description }}
 </p>
 <p>
     ${{ profile.favorite_food | round(2) }} {{ profile.description }}
 </p>
 <p>
-    {{ profile.date.strftime('%b %d, %Y') }} | {{ profile.category }}
+    {{ profile.date.strftime('%b %d, %Y') }} 
 </p>
 
 <p><a href="{{ request.route_url('edit', id=profile.id) }}">Edit</a></p>

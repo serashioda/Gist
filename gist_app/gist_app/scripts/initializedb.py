@@ -46,7 +46,10 @@ def main(argv=sys.argv):
     fake = faker.Faker()
 
     profile = [Profile(
-        name=fake.name(),
+        user_name=fake.name(),
+        f_name=fake.first_name(),
+        l_name=fake.last_name(),
+        email=fake.email(),
         favorite_food=fake.food(),
         date=fake.date_object(),
         description=fake.text(100),
