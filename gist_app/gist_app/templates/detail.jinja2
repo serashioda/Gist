@@ -1,0 +1,19 @@
+{% extends "layout.jinja2" %}
+
+{% block title %}{{ profile.item }}{% endblock %}
+
+{% block body %}
+<h1>{{ profile.item }}</h1>
+<p>
+    ${{ profile.name | round(2) }} {{ profile.description }}
+</p>
+<p>
+    ${{ profile.favorite_food | round(2) }} {{ profile.description }}
+</p>
+<p>
+    {{ profile.date.strftime('%b %d, %Y') }} | {{ profile.category }}
+</p>
+
+<p><a href="{{ request.route_url('edit', id=profile.id) }}">Edit</a></p>
+
+{% endblock %}

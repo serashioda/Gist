@@ -1,0 +1,37 @@
+{% extends "layout.jinja2" %}
+
+{% block title %}Profiles{% endblock %}
+
+{% block body %}
+
+
+<form method="POST">
+    <input type="submit" value="Go" />
+</form>
+
+<table id="profile-list">
+    <tr id="head-row">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Edit Profile</th>
+        <th>Delete Profile</th>
+    </tr>
+
+{% for profile in profiles %}
+<tr>
+    <td>{{ profile.date.strftime("%b %d, %Y") }}</td>
+    <td align="right">${{ "%0.2f" | format(profile.name) }}</td>
+    <td>{{ profile.name }}</td>
+    <td>{{ profile.favorite_food }}</td>
+    <td align="center"><a href="{{ request.route_url('edit', id=profile.id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+    <td align="center"><a href="#" class="delete" data="{{ profile.id }}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ request.static_url('gist_app:static/app.js') }}"></script>
+{% endblock %}

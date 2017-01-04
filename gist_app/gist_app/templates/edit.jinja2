@@ -1,0 +1,26 @@
+{% extends "layout.jinja2" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+<h1>Edit Profile</h1>
+<form method="POST">
+    <p>
+        <label for="item">Name: </label>
+        <input type="text" name="name" value="{{data.name}}"/>
+    </p>
+    <p>
+        <label for="favorite_food">Favorite food:</label>
+        <input type="text" name="favorite_food" value="{{ data.favorite_food}}"/>
+    </p>
+   
+    <p>
+        <label for="description">Description: </label>
+        <textarea name="description">{{ data.description }}</textarea>
+    </p>
+    <p>
+        <input type="submit" name="Edit Profile" />
+    </p>
+</form>
+
+{% endblock %}

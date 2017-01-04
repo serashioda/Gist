@@ -1,11 +1,14 @@
+"""Database initialization script."""
+
 import os
 import sys
 import transaction
+import faker
 
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
-    )
+)
 
 from pyramid.scripts.common import parse_vars
 
@@ -14,8 +17,8 @@ from ..models import (
     get_engine,
     get_session_factory,
     get_tm_session,
-    )
-from ..models import MyModel
+)
+from ..models import Profile
 
 
 def usage(argv):
@@ -34,12 +37,22 @@ def main(argv=sys.argv):
     settings = get_appsettings(config_uri, options=options)
 
     engine = get_engine(settings)
+
+    Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
     session_factory = get_session_factory(engine)
 
+    fake = faker.Faker()
+
+    profile = [Profile(
+        name=fake.name(),
+        favorite_food=fake.food(),
+        date=fake.date_object(),
+        description=fake.text(100),
+    ) for i in range(100)]
+
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
 
-        model = MyModel(name='one', value=1)
-        dbsession.add(model)
+        dbsession.add(profile)
